@@ -10,6 +10,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
+/**
+ * Main class of MapViewer. It loads the two gif files used to build the map. As well as 
+ * the FXML file used to set the layout of the window. It then creates an image object
+ * tileset in order to draw.*/   
+
 public class GameMap extends Application {
     public static Stage primaryStage;
     public static TileMap tileMap;
@@ -61,6 +66,7 @@ public class GameMap extends Application {
 		Layout1.setCenter(Layout2);
     }
 
+     
 	public static void main(String[] args) {
 		launch(args);
 	}
