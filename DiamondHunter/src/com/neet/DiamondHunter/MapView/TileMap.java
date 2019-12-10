@@ -19,6 +19,10 @@ public class TileMap {
 	
 	private Image tileset;
 
+	/**
+	 * Method used to load map. Creates variable map to store map to be drawn.
+	 * @param mapFile
+	 */
 	public void loadMap(String mapFile) {
 		try {
 			InputStream in = getClass().getResourceAsStream(mapFile);
@@ -53,6 +57,7 @@ public class TileMap {
 		}
 	}
 
+	/*Draws image of map*/
 	public void canvas() {
 		mainCanvas = new Canvas(640,640);
 		tileLayout = new int[rows][cols];

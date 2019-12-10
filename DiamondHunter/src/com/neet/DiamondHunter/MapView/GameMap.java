@@ -11,9 +11,11 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
 /**
- * Main class of MapViewer. It loads the two gif files used to build the map. As well as 
- * the FXML file used to set the layout of the window. It then creates an image object
- * tileset in order to draw.*/   
+ * Main class of MapViewer. It loads the root layout by using the FXML file.
+ * It loads the two files used to build the map. Testmap.map is input in to a multidimensional array. 
+ * It then uses the values from the array to draw the map based on the corresponding
+ * tile in testtileset.gif. 
+ * */   
 
 public class GameMap extends Application {
     public static Stage primaryStage;
@@ -22,6 +24,7 @@ public class GameMap extends Application {
     public BorderPane Layout1;
     public TilePane Layout2;
     
+    /*Building Window*/
 	@Override
 	public void start(Stage primaryStage) {
 		GameMap.primaryStage = primaryStage;
