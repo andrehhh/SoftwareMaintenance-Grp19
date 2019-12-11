@@ -20,6 +20,7 @@ import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.JukeBox;
 import com.neet.DiamondHunter.Manager.Keys;
 import com.neet.DiamondHunter.TileMap.TileMap;
+import com.neet.DiamondHunter.MapView.GameMap;
 
 public class PlayState extends GameState {
 	
@@ -176,12 +177,30 @@ public class PlayState extends GameState {
 		
 		item = new Item(tileMap);
 		item.setType(Item.AXE);
-		item.setTilePosition(26, 37);
+		if (GameMap.MapOpen == false) {
+			item.setTilePosition(26, 37);
+		}
+		else if (GameMap.tileMapViewer.axeRow == 0 && GameMap.tileMapViewer.axeCol == 0) {
+			item.setTilePosition(26, 37);
+		}
+		else {
+			item.setTilePosition(GameMap.tileMapViewer.axeRow, GameMap.tileMapViewer.axeCol);
+		}
+		//item.setTilePosition(26, 37);
 		items.add(item);
 		
 		item = new Item(tileMap);
 		item.setType(Item.BOAT);
-		item.setTilePosition(12, 4);
+		if (GameMap.MapOpen == false) {
+			item.setTilePosition(12, 4);
+		}
+		else if (GameMap.tileMapViewer.boatRow == 0 && GameMap.tileMapViewer.boatCol == 0) {
+			item.setTilePosition(12, 4);
+		}
+		else {
+			item.setTilePosition(GameMap.tileMapViewer.boatRow, GameMap.tileMapViewer.boatCol);
+		}
+		//item.setTilePosition(12, 4);
 		items.add(item);
 		
 	}

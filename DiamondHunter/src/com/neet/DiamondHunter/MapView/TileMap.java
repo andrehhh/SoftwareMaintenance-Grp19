@@ -10,8 +10,8 @@ public class TileMap {
 
 	private int tileSize = 16;
 	public int cols, rows;
-	public int boatCol, boatRow;
-	public int axeCol, axeRow;
+	public int boatCol = 0, boatRow = 0;
+	public int axeCol = 0, axeRow = 0;
 	private int currentcols, currentrows;
 	private int numTilesAcross;
 	public int moveCol;
@@ -241,7 +241,7 @@ public void SetAxe(){
 				tileLayout[axeRow][axeCol] = 0;
 				tileLayout[cursor.row][cursor.col] = 1;
 				
-				
+	
 			}
 			
 			axeSet = true;

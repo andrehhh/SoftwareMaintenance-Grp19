@@ -12,6 +12,8 @@ public class GameMap extends Application {
     public static Stage primaryStage;
     public static TileMap tileMapViewer;
     
+    public static boolean MapOpen = false;
+    
     public BorderPane Layout1;
     public TilePane Layout2;
     
@@ -23,6 +25,8 @@ public class GameMap extends Application {
         initializeLayout();
         
 		showMap();
+		
+		MapOpen = true;
 	}
 	
     public void initializeLayout() {
