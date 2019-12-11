@@ -1,18 +1,18 @@
 package com.neet.DiamondHunter.MapView;
 
+import java.awt.Label;
+
 import com.neet.DiamondHunter.Main.Game;
 import com.neet.DiamondHunter.MapView.GameMap;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TabPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 
 public class MapControl {
-	
-	@FXML
-	private TabPane Instruct;
+		
+	@FXML Label Information;
 	
 	@FXML
 	private void handleKeyAction(KeyEvent event) {

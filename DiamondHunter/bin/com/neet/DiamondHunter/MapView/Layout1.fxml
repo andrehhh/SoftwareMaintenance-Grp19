@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.*?>
 
 <BorderPane onKeyPressed="#handleKeyAction" prefHeight="640.0" prefWidth="808.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.neet.DiamondHunter.MapView.MapControl">
   <bottom>
@@ -70,6 +71,14 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               </rowConstraints>
                             </GridPane>
+                            <Label fx:id="Infomation" prefHeight="71.0" prefWidth="160.0" text="a" VBox.vgrow="NEVER">
+                              <font>
+                                <Font size="20.0" />
+                              </font>
+                              <VBox.margin>
+                                <Insets bottom="10.0" left="50.0" right="10.0" top="50.0" />
+                              </VBox.margin>
+                            </Label>
                           </children>
                         </VBox>
                       </children>
