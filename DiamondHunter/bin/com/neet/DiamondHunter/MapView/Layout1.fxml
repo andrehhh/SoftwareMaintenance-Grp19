@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.TilePane?>
-<TilePane prefHeight="640" prefWidth="640">
+<TilePane prefHeight="640.0" prefWidth="640.0">
 </TilePane>
