@@ -22,12 +22,10 @@ public class MapControl {
 	    }
 	    else if (event.getCode() == KeyCode.D) {
 	    	GameMap.tileMapViewer.moveCursor("D");
-	
 	    }
-	 
-	    else if (event.getCode() == KeyCode.ENTER) {
-			GameMap.primaryStage.hide();
-			Game.main(null);
+	    else if (event.getCode() == KeyCode.U) {
+	    	GameMap.primaryStage.hide();
+	    	Game.main(null);
 	    }
 	}
 }
