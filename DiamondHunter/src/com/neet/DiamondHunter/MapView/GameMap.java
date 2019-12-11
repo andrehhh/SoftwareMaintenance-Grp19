@@ -45,7 +45,7 @@ public class GameMap extends Application {
     public void showMap() {
     	tileMapViewer = new TileMap();
     	tileMapViewer.loadMap("/Maps/testmap.map");
-    	tileMapViewer.loadTile("/Tilesets/testtileset.gif");
+    	tileMapViewer.loadImages("/Tilesets/testtileset.gif", "/Sprites/items.gif");
 	    
 		try {
 			FXMLLoader loader = new FXMLLoader();
