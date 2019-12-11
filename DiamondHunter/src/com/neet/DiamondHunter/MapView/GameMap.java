@@ -1,10 +1,15 @@
 package com.neet.DiamondHunter.MapView;
 
+import java.awt.Label;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
@@ -13,7 +18,7 @@ public class GameMap extends Application {
     public static TileMap tileMapViewer;
     
     public BorderPane Layout1;
-    public TilePane Layout2;
+    public TilePane Layout2; 
     
 	@Override
 	public void start(Stage primaryStage) {
@@ -28,11 +33,9 @@ public class GameMap extends Application {
     public void initializeLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout2.fxml"));
-            Layout1 = (BorderPane) loader.load();
-
+            loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout1.fxml"));
+            Layout1 = (BorderPane)loader.load();
             Scene scene = new Scene(Layout1);
-            
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -42,6 +45,7 @@ public class GameMap extends Application {
         }
     }
     
+    
     public void showMap() {
     	tileMapViewer = new TileMap();
     	tileMapViewer.loadMap("/Maps/testmap.map");
@@ -49,7 +53,7 @@ public class GameMap extends Application {
 	    
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout1.fxml"));
+			loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout2.fxml"));
 		
 			Layout2 = (TilePane) loader.load();
 		} catch (IOException e) {
@@ -60,7 +64,7 @@ public class GameMap extends Application {
 		Layout2.setPrefRows(tileMapViewer.rows);
 		tileMapViewer.canvas();
 		Layout2.getChildren().add(tileMapViewer.currCanvas);
-		Layout1.setCenter(Layout2);
+		Layout1.setLeft(Layout2);
     }
 
 	public static void main(String[] args) {

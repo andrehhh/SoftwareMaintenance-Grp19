@@ -1,11 +1,16 @@
 package com.neet.DiamondHunter.MapView;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TabPane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-public class MapControl {
 
+public class MapControl {
+	
+	@FXML
+	private TabPane Instruct;
+	
 	@FXML
 	private void handleKeyAction(KeyEvent event) {
 	    if (event.getCode() == KeyCode.W) {
