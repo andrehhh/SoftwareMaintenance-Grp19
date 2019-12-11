@@ -181,6 +181,7 @@ public class PlayState extends GameState {
 			item.setTilePosition(26, 37);
 		}
 		else if (GameMap.tileMapViewer.axeRow == 0 && GameMap.tileMapViewer.axeCol == 0) {
+			//item.setTilePosition(26, 37);
 			item.setTilePosition(26, 37);
 		}
 		else {
@@ -192,6 +193,7 @@ public class PlayState extends GameState {
 		item = new Item(tileMap);
 		item.setType(Item.BOAT);
 		if (GameMap.MapOpen == false) {
+			//item.setTilePosition(12, 4);
 			item.setTilePosition(12, 4);
 		}
 		else if (GameMap.tileMapViewer.boatRow == 0 && GameMap.tileMapViewer.boatCol == 0) {
@@ -200,7 +202,6 @@ public class PlayState extends GameState {
 		else {
 			item.setTilePosition(GameMap.tileMapViewer.boatRow, GameMap.tileMapViewer.boatCol);
 		}
-		//item.setTilePosition(12, 4);
 		items.add(item);
 		
 	}

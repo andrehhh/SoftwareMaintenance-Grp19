@@ -110,45 +110,28 @@ public class TileMap {
 	}
 	
 	private void updateCanvas() {
-		currCanvas.getGraphicsContext2D().drawImage(
-				mapView,
-				moveCol * tileSize, moveRow * tileSize,
-				currentcols * tileSize, currentrows * tileSize,
+		currCanvas.getGraphicsContext2D().drawImage(mapView, moveCol * tileSize, moveRow * tileSize, currentcols * tileSize, currentrows * tileSize,
 				0, 0, 640, 640);
 	}
 
 	private void drawCursor() {
 		cursorImage = new Image(Cursor.class.getResourceAsStream("/Sprites/logo.png"));
-		mainCanvas.getGraphicsContext2D().drawImage(
-				cursorImage, 0, 0,
-				tileSize, tileSize,
-				cursor.col * tileSize,
-				cursor.row * tileSize,
-				tileSize, tileSize);
+		mainCanvas.getGraphicsContext2D().drawImage(cursorImage, 0, 0, tileSize, tileSize, cursor.col * tileSize, cursor.row * tileSize, tileSize, tileSize);
 	}
 	
 	private void deleteCursor(int col, int row) {
 		if((boatRow == cursor.row && boatCol == cursor.col)) {
 			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
-			mainCanvas.getGraphicsContext2D().drawImage(items,
-					boatTile  * tileSize, tileSize, tileSize, tileSize,
-					boatCol * tileSize,
-					boatRow * tileSize,
-					tileSize, tileSize);
+			mainCanvas.getGraphicsContext2D().drawImage(items, boatTile  * tileSize, tileSize, tileSize, tileSize, boatCol * tileSize, boatRow * tileSize, tileSize, tileSize);
 		}
 		
 		else if((axeRow == cursor.row && axeCol == cursor.col)) {
 			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
-			mainCanvas.getGraphicsContext2D().drawImage(items,
-					axeTile  * tileSize, tileSize, tileSize, tileSize,
-					axeCol * tileSize,
-					axeRow * tileSize,
-					tileSize, tileSize);
+			mainCanvas.getGraphicsContext2D().drawImage(items, axeTile  * tileSize, tileSize, tileSize, tileSize, axeCol * tileSize, axeRow * tileSize, tileSize, tileSize);
 		}
 		else {
 			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
 		}
-		
 	}
 
 	public void moveCursor(String c) {
@@ -183,18 +166,10 @@ public class TileMap {
 	
 	public void drawItems() {
 		if(boatSet) {
-			mainCanvas.getGraphicsContext2D().drawImage(items,
-					boatTile  * tileSize, tileSize, tileSize, tileSize,
-					boatCol * tileSize,
-					boatRow * tileSize,
-					tileSize, tileSize);
+			mainCanvas.getGraphicsContext2D().drawImage(items, boatTile  * tileSize, tileSize, tileSize, tileSize, boatCol * tileSize, boatRow * tileSize, tileSize, tileSize);
 		}
-		else if(axeSet) {
-			mainCanvas.getGraphicsContext2D().drawImage(items,
-					axeTile  * tileSize, tileSize, tileSize, tileSize,
-					axeCol * tileSize,
-					axeRow * tileSize,
-					tileSize, tileSize);
+		if(axeSet) {
+			mainCanvas.getGraphicsContext2D().drawImage(items, axeTile  * tileSize, tileSize, tileSize, tileSize, axeCol * tileSize, axeRow * tileSize, tileSize, tileSize);
 		}
 	}
 	
@@ -210,29 +185,23 @@ public class TileMap {
 				
 				tileLayout[boatRow][boatCol] = 0;
 				tileLayout[cursor.row][cursor.col] = 1;
-				
-				
 			}
-			
 			boatSet = true;
 			tileLayout[cursor.row][cursor.col] = 1;
 			
 			boatRow = cursor.row;
 			boatCol = cursor.col;
 		}
-		
 		drawItems();
 		drawCursor();
 		mapView = mainCanvas.snapshot(null,null);
 		updateCanvas();
-		
 	}
 	
 public void SetAxe(){
 		
 		deleteCursor(cursor.col, cursor.row);
 		if (tileLayout[cursor.row][cursor.col] == 1) {
-			
 		}
 		else {
 			if(axeSet) {
@@ -240,21 +209,16 @@ public void SetAxe(){
 				
 				tileLayout[axeRow][axeCol] = 0;
 				tileLayout[cursor.row][cursor.col] = 1;
-				
-	
 			}
-			
 			axeSet = true;
 			tileLayout[cursor.row][cursor.col] = 1;
 			
 			axeRow = cursor.row;
 			axeCol = cursor.col;
 		}
-		
 		drawItems();
 		drawCursor();
 		mapView = mainCanvas.snapshot(null,null);
 		updateCanvas();
-		
 	}
 }
