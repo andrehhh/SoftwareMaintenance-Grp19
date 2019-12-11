@@ -27,5 +27,9 @@ public class MapControl {
 	    	GameMap.primaryStage.hide();
 	    	Game.main(null);
 	    }
+	    else if (event.getCode() == KeyCode.E) {
+			GameMap.tileMapViewer.SetBoat();
+
+		}
 	}
 }

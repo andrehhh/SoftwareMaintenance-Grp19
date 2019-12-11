@@ -10,10 +10,15 @@ public class TileMap {
 
 	private int tileSize = 16;
 	public int cols, rows;
+	public int boatCol, boatRow;
+	public int axeCol, axeRow;
 	private int currentcols, currentrows;
 	private int numTilesAcross;
 	public int moveCol;
 	public int moveRow;
+	
+	public final int boatTile = 0;
+	public final int axeTile = 1;
 	
 	private int[][] map;
 	private int[][] tileLayout;
@@ -28,6 +33,8 @@ public class TileMap {
 	public Canvas currCanvas;
 	
 	public Cursor cursor;
+	
+	public boolean boatSet=false;
 
 	public void loadMap(String mapFile) {
 		try {
@@ -120,7 +127,18 @@ public class TileMap {
 	}
 	
 	private void deleteCursor(int col, int row) {
-		mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+		if((boatRow == cursor.row && boatCol == cursor.col)) {
+			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+			mainCanvas.getGraphicsContext2D().drawImage(items,
+					boatTile  * tileSize, tileSize, tileSize, tileSize,
+					boatCol * tileSize,
+					boatRow * tileSize,
+					tileSize, tileSize);
+		}
+		else {
+			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+		}
+		
 	}
 
 	public void moveCursor(String c) {
@@ -151,5 +169,45 @@ public class TileMap {
 		drawCursor();
 		mapView = mainCanvas.snapshot(null, null);
 		updateCanvas();
+	}
+	
+	public void drawItems() {
+		if(boatSet) {
+			mainCanvas.getGraphicsContext2D().drawImage(items,
+					boatTile  * tileSize, tileSize, tileSize, tileSize,
+					boatCol * tileSize,
+					boatRow * tileSize,
+					tileSize, tileSize);
+		}
+	}
+	
+	public void SetBoat(){
+		
+		deleteCursor(cursor.col, cursor.row);
+		if (tileLayout[cursor.row][cursor.col] == 1) {
+			
+		}
+		else {
+			if(boatSet) {
+				deleteCursor(boatCol, boatRow);
+				
+				tileLayout[boatRow][boatCol] = 0;
+				tileLayout[cursor.row][cursor.col] = 1;
+				
+				
+			}
+			
+			boatSet = true;
+			tileLayout[cursor.row][cursor.col] = 1;
+			
+			boatRow = cursor.row;
+			boatCol = cursor.col;
+		}
+		
+		drawItems();
+		drawCursor();
+		mapView = mainCanvas.snapshot(null,null);
+		updateCanvas();
+		
 	}
 }
