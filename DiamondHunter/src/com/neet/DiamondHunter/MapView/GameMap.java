@@ -1,15 +1,10 @@
 package com.neet.DiamondHunter.MapView;
 
-import java.awt.Label;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
@@ -38,12 +33,10 @@ public class GameMap extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout1.fxml"));
-<<<<<<< HEAD
-            Layout1 = (BorderPane)loader.load();
-=======
+
+
             Layout1 = (BorderPane) loader.load();
 
->>>>>>> b96825deec550b88dec18d197a9ef4b5b7e25827
             Scene scene = new Scene(Layout1);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);

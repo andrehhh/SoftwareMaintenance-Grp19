@@ -15,11 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<<<<<<< HEAD
 <BorderPane onKeyPressed="#handleKeyAction" prefHeight="640.0" prefWidth="808.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.neet.DiamondHunter.MapView.MapControl">
-=======
-<BorderPane onKeyPressed="#handleKeyAction" prefHeight="640.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.neet.DiamondHunter.MapView.MapControl">
->>>>>>> b96825deec550b88dec18d197a9ef4b5b7e25827
   <bottom>
     <GridPane style="-fx-background-color: #5c99d6;" BorderPane.alignment="CENTER">
       <children>
@@ -59,7 +55,7 @@
                                 <Label id="D" prefHeight="30.0" prefWidth="160.0" text="Q to put Axe" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                                 <Label id="E" prefHeight="30.0" prefWidth="160.0" text="E to put Boat" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                                 <Label id="F" minHeight="13.999908447265625" prefHeight="30.0" prefWidth="160.0" text="To run the Game:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                                <Label id="G" prefHeight="30.0" prefWidth="160.0" text="Enter key" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                                <Label id="G" prefHeight="30.0" prefWidth="160.0" text="U" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                               </children>
                               <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
