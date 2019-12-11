@@ -28,7 +28,7 @@ public class GameMap extends Application {
     public void initializeLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout2.fxml"));
+            loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout1.fxml"));
             Layout1 = (BorderPane) loader.load();
 
             Scene scene = new Scene(Layout1);
@@ -49,7 +49,7 @@ public class GameMap extends Application {
 	    
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout1.fxml"));
+			loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout2.fxml"));
 		
 			Layout2 = (TilePane) loader.load();
 		} catch (IOException e) {
