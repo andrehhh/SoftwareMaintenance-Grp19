@@ -22,6 +22,7 @@ public class TileMap {
 	private Image mapView;
 	private Image originalmapView;
 	public Image cursorImage;
+	public Image items;
 	
 	private Canvas mainCanvas;
 	public Canvas currCanvas;
@@ -54,9 +55,10 @@ public class TileMap {
 		}
 	}
 
-	public void loadTile(String tilesetImage) {
+	public void loadImages(String tilesetImage, String itemsImage) {
 		try {
 			tileset = new Image(TileMap.class.getResourceAsStream(tilesetImage));
+			items = new Image(TileMap.class.getResourceAsStream(itemsImage));
 			numTilesAcross = (int)tileset.getWidth() / tileSize;
 		}
 		catch(Exception e) {
