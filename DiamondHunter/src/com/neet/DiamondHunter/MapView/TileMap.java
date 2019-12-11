@@ -35,6 +35,7 @@ public class TileMap {
 	public Cursor cursor;
 	
 	public boolean boatSet=false;
+	public boolean axeSet=false;
 
 	public void loadMap(String mapFile) {
 		try {
@@ -135,6 +136,15 @@ public class TileMap {
 					boatRow * tileSize,
 					tileSize, tileSize);
 		}
+		
+		else if((axeRow == cursor.row && axeCol == cursor.col)) {
+			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+			mainCanvas.getGraphicsContext2D().drawImage(items,
+					axeTile  * tileSize, tileSize, tileSize, tileSize,
+					axeCol * tileSize,
+					axeRow * tileSize,
+					tileSize, tileSize);
+		}
 		else {
 			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
 		}
@@ -179,6 +189,13 @@ public class TileMap {
 					boatRow * tileSize,
 					tileSize, tileSize);
 		}
+		else if(axeSet) {
+			mainCanvas.getGraphicsContext2D().drawImage(items,
+					axeTile  * tileSize, tileSize, tileSize, tileSize,
+					axeCol * tileSize,
+					axeRow * tileSize,
+					tileSize, tileSize);
+		}
 	}
 	
 	public void SetBoat(){
@@ -202,6 +219,36 @@ public class TileMap {
 			
 			boatRow = cursor.row;
 			boatCol = cursor.col;
+		}
+		
+		drawItems();
+		drawCursor();
+		mapView = mainCanvas.snapshot(null,null);
+		updateCanvas();
+		
+	}
+	
+public void SetAxe(){
+		
+		deleteCursor(cursor.col, cursor.row);
+		if (tileLayout[cursor.row][cursor.col] == 1) {
+			
+		}
+		else {
+			if(axeSet) {
+				deleteCursor(axeCol, axeRow);
+				
+				tileLayout[axeRow][axeCol] = 0;
+				tileLayout[cursor.row][cursor.col] = 1;
+				
+				
+			}
+			
+			axeSet = true;
+			tileLayout[cursor.row][cursor.col] = 1;
+			
+			axeRow = cursor.row;
+			axeCol = cursor.col;
 		}
 		
 		drawItems();

@@ -29,7 +29,9 @@ public class MapControl {
 	    }
 	    else if (event.getCode() == KeyCode.E) {
 			GameMap.tileMapViewer.SetBoat();
-
+		}
+	    else if (event.getCode() == KeyCode.Q) {
+			GameMap.tileMapViewer.SetAxe();
 		}
 	}
 }
