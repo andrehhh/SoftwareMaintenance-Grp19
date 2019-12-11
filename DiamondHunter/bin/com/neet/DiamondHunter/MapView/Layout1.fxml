@@ -15,11 +15,15 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<<<<<<< HEAD
 <BorderPane onKeyPressed="#handleKeyAction" prefHeight="640.0" prefWidth="808.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.neet.DiamondHunter.MapView.MapControl">
+=======
+<BorderPane onKeyPressed="#handleKeyAction" prefHeight="640.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.neet.DiamondHunter.MapView.MapControl">
+>>>>>>> b96825deec550b88dec18d197a9ef4b5b7e25827
   <bottom>
     <GridPane style="-fx-background-color: #5c99d6;" BorderPane.alignment="CENTER">
       <children>
-        <Button style="-fx-background-radius: 20; -fx-font-family: Copperplate; -fx-background-color: #ffffff; -fx-font-size: 8;" text="Version 1.0" textFill="#5c99d6" GridPane.columnIndex="0">
+        <Button GridPane.columnIndex="0">
           <GridPane.margin>
             <Insets left="60.0" />
           </GridPane.margin>

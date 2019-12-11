@@ -1,5 +1,8 @@
 package com.neet.DiamondHunter.MapView;
 
+import com.neet.DiamondHunter.Main.Game;
+import com.neet.DiamondHunter.MapView.GameMap;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.KeyCode;
@@ -24,7 +27,16 @@ public class MapControl {
 	    }
 	    else if (event.getCode() == KeyCode.D) {
 	    	GameMap.tileMapViewer.moveCursor("D");
-	
 	    }
+	    else if (event.getCode() == KeyCode.U) {
+	    	GameMap.primaryStage.hide();
+	    	Game.main(null);
+	    }
+	    else if (event.getCode() == KeyCode.E) {
+			GameMap.tileMapViewer.SetBoat();
+		}
+	    else if (event.getCode() == KeyCode.Q) {
+			GameMap.tileMapViewer.SetAxe();
+		}
 	}
 }

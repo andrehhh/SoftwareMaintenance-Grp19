@@ -17,6 +17,8 @@ public class GameMap extends Application {
     public static Stage primaryStage;
     public static TileMap tileMapViewer;
     
+    public static boolean MapOpen = false;
+    
     public BorderPane Layout1;
     public TilePane Layout2; 
     
@@ -28,13 +30,20 @@ public class GameMap extends Application {
         initializeLayout();
         
 		showMap();
+		
+		MapOpen = true;
 	}
 	
     public void initializeLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(GameMap.class.getResource("/com/neet/DiamondHunter/MapView/Layout1.fxml"));
+<<<<<<< HEAD
             Layout1 = (BorderPane)loader.load();
+=======
+            Layout1 = (BorderPane) loader.load();
+
+>>>>>>> b96825deec550b88dec18d197a9ef4b5b7e25827
             Scene scene = new Scene(Layout1);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
@@ -49,7 +58,7 @@ public class GameMap extends Application {
     public void showMap() {
     	tileMapViewer = new TileMap();
     	tileMapViewer.loadMap("/Maps/testmap.map");
-    	tileMapViewer.loadTile("/Tilesets/testtileset.gif");
+    	tileMapViewer.loadImages("/Tilesets/testtileset.gif", "/Sprites/items.gif");
 	    
 		try {
 			FXMLLoader loader = new FXMLLoader();

@@ -10,10 +10,15 @@ public class TileMap {
 
 	private int tileSize = 16;
 	public int cols, rows;
+	public int boatCol = 0, boatRow = 0;
+	public int axeCol = 0, axeRow = 0;
 	private int currentcols, currentrows;
 	private int numTilesAcross;
 	public int moveCol;
 	public int moveRow;
+	
+	public final int boatTile = 0;
+	public final int axeTile = 1;
 	
 	private int[][] map;
 	private int[][] tileLayout;
@@ -22,11 +27,15 @@ public class TileMap {
 	private Image mapView;
 	private Image originalmapView;
 	public Image cursorImage;
+	public Image items;
 	
 	private Canvas mainCanvas;
 	public Canvas currCanvas;
 	
 	public Cursor cursor;
+	
+	public boolean boatSet=false;
+	public boolean axeSet=false;
 
 	public void loadMap(String mapFile) {
 		try {
@@ -54,9 +63,10 @@ public class TileMap {
 		}
 	}
 
-	public void loadTile(String tilesetImage) {
+	public void loadImages(String tilesetImage, String itemsImage) {
 		try {
 			tileset = new Image(TileMap.class.getResourceAsStream(tilesetImage));
+			items = new Image(TileMap.class.getResourceAsStream(itemsImage));
 			numTilesAcross = (int)tileset.getWidth() / tileSize;
 		}
 		catch(Exception e) {
@@ -118,7 +128,27 @@ public class TileMap {
 	}
 	
 	private void deleteCursor(int col, int row) {
-		mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+		if((boatRow == cursor.row && boatCol == cursor.col)) {
+			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+			mainCanvas.getGraphicsContext2D().drawImage(items,
+					boatTile  * tileSize, tileSize, tileSize, tileSize,
+					boatCol * tileSize,
+					boatRow * tileSize,
+					tileSize, tileSize);
+		}
+		
+		else if((axeRow == cursor.row && axeCol == cursor.col)) {
+			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+			mainCanvas.getGraphicsContext2D().drawImage(items,
+					axeTile  * tileSize, tileSize, tileSize, tileSize,
+					axeCol * tileSize,
+					axeRow * tileSize,
+					tileSize, tileSize);
+		}
+		else {
+			mainCanvas.getGraphicsContext2D().drawImage(originalmapView, col * tileSize, row * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+		}
+		
 	}
 
 	public void moveCursor(String c) {
@@ -149,5 +179,82 @@ public class TileMap {
 		drawCursor();
 		mapView = mainCanvas.snapshot(null, null);
 		updateCanvas();
+	}
+	
+	public void drawItems() {
+		if(boatSet) {
+			mainCanvas.getGraphicsContext2D().drawImage(items,
+					boatTile  * tileSize, tileSize, tileSize, tileSize,
+					boatCol * tileSize,
+					boatRow * tileSize,
+					tileSize, tileSize);
+		}
+		else if(axeSet) {
+			mainCanvas.getGraphicsContext2D().drawImage(items,
+					axeTile  * tileSize, tileSize, tileSize, tileSize,
+					axeCol * tileSize,
+					axeRow * tileSize,
+					tileSize, tileSize);
+		}
+	}
+	
+	public void SetBoat(){
+		
+		deleteCursor(cursor.col, cursor.row);
+		if (tileLayout[cursor.row][cursor.col] == 1) {
+			
+		}
+		else {
+			if(boatSet) {
+				deleteCursor(boatCol, boatRow);
+				
+				tileLayout[boatRow][boatCol] = 0;
+				tileLayout[cursor.row][cursor.col] = 1;
+				
+				
+			}
+			
+			boatSet = true;
+			tileLayout[cursor.row][cursor.col] = 1;
+			
+			boatRow = cursor.row;
+			boatCol = cursor.col;
+		}
+		
+		drawItems();
+		drawCursor();
+		mapView = mainCanvas.snapshot(null,null);
+		updateCanvas();
+		
+	}
+	
+public void SetAxe(){
+		
+		deleteCursor(cursor.col, cursor.row);
+		if (tileLayout[cursor.row][cursor.col] == 1) {
+			
+		}
+		else {
+			if(axeSet) {
+				deleteCursor(axeCol, axeRow);
+				
+				tileLayout[axeRow][axeCol] = 0;
+				tileLayout[cursor.row][cursor.col] = 1;
+				
+	
+			}
+			
+			axeSet = true;
+			tileLayout[cursor.row][cursor.col] = 1;
+			
+			axeRow = cursor.row;
+			axeCol = cursor.col;
+		}
+		
+		drawItems();
+		drawCursor();
+		mapView = mainCanvas.snapshot(null,null);
+		updateCanvas();
+		
 	}
 }
