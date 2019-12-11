@@ -8,10 +8,21 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
+/**
+ * This class is the main class for the application.
+ * It produces the window as well as draws the map and the 
+ * cursor used to place Boat and Axe.
+ * @author daffaster85
+ *
+ */
+
+
 public class GameMap extends Application {
     public static Stage primaryStage;
     public static TileMap tileMapViewer;
     
+    //Variable used to check if GameMap application was opened or not
+    //to decide in editing where Axe and Boat are set in main game
     public static boolean MapOpen = false;
     
     public BorderPane Layout1;
@@ -29,6 +40,9 @@ public class GameMap extends Application {
 		MapOpen = true;
 	}
 	
+	/**
+	 * Setting UI of scene using Layout1.fxml
+	 */
     public void initializeLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -47,6 +61,9 @@ public class GameMap extends Application {
         }
     }
     
+    /**
+     * Calls the methods that builds the map
+     */
     public void showMap() {
     	tileMapViewer = new TileMap();
     	tileMapViewer.loadMap("/Maps/testmap.map");
@@ -68,7 +85,8 @@ public class GameMap extends Application {
 		Layout2.getChildren().add(tileMapViewer.currCanvas);
 		Layout1.setLeft(Layout2);
     }
-
+    
+    //Main
 	public static void main(String[] args) {
 		launch(args);
 	}

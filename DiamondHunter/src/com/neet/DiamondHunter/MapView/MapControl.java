@@ -10,6 +10,10 @@ import javafx.scene.input.KeyEvent;
 
 public class MapControl {
 	
+	/**
+	 * Method for handling key press
+	 * @param event
+	 */
 	@FXML
 	private void handleKeyAction(KeyEvent event) {
 	    if (event.getCode() == KeyCode.W || event.getCode() == KeyCode.UP) {
@@ -35,6 +39,9 @@ public class MapControl {
 		}
 	}
 	
+	/**
+	 * Starts game when P is pressed
+	 */
 	@FXML
 	private void startGame() {
 		GameMap.primaryStage.hide();
