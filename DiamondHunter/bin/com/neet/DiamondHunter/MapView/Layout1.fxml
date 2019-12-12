@@ -17,28 +17,11 @@
 <?import javafx.scene.text.*?>
 
 <BorderPane onKeyPressed="#handleKeyAction" prefHeight="640.0" prefWidth="808.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.neet.DiamondHunter.MapView.MapControl">
-  <bottom>
-    <GridPane style="-fx-background-color: #5c99d6;" BorderPane.alignment="CENTER">
-      <children>
-        <Button GridPane.columnIndex="0">
-          <GridPane.margin>
-            <Insets left="60.0" />
-          </GridPane.margin>
-        </Button>
-      </children>
-      <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      </columnConstraints>
-      <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      </rowConstraints>
-    </GridPane>
-  </bottom>
   <center>
     <SplitPane dividerPositions="0.7990074441687345" focusTraversable="true" prefHeight="160.0" prefWidth="200.0">
       <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="640.0" />
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="200.0">
+        <AnchorPane minHeight="638.0" minWidth="159.0" prefHeight="638.0" prefWidth="159.0">
           <children>
             <TabPane fx:id="Instruct" prefHeight="608.0" prefWidth="159.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <tabs>
@@ -46,7 +29,7 @@
                   <content>
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="577.0" prefWidth="159.0">
                       <children>
-                        <VBox layoutX="0.0" layoutY="-1.0" prefHeight="578.0" prefWidth="160.0">
+                        <VBox layoutX="0.0" layoutY="-1.0" minHeight="578.0" minWidth="160.0" prefHeight="578.0" prefWidth="160.0">
                           <children>
                             <GridPane prefHeight="271.0" prefWidth="160.0">
                               <children>
